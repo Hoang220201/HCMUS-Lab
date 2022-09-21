@@ -1,0 +1,15 @@
+﻿@model ProjectWeek02.Areas.Admin.Models.SignUp
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+
+    @Html.TextBoxFor(m => m.UserName, new { placeholder = "name" });
+   
+    @Html.TextBoxFor(m => m.Password, new { placeholder = "password" });
+
+    @Html.TextBoxFor(m => m.Email, new { placeholder = "email address" });
+    <button type="submit">create</button>
+    <p class="message">Already registered? <a href="/Admin/Home/Index">Sign In</a></p>
+}

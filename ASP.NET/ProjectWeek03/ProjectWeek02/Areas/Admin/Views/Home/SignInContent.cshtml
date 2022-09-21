@@ -1,0 +1,16 @@
+﻿@model ProjectWeek02.Areas.Admin.Models.LoginModel
+
+@*<form class="login-form">*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+
+    @*<input type="text" placeholder="username"/>*@
+    @Html.TextBoxFor(m => m.UserName, new { placeholder = "username" });
+    @*<input type="password" placeholder="password"/>*@
+    @Html.TextBoxFor(m => m.Password, new { placeholder = "password" });
+    <button type="submit">login</button>
+    <p class="message">Not registered? <a href="/Admin/Signup/Index">Create an account</a></p>
+}
+@*</form>*@

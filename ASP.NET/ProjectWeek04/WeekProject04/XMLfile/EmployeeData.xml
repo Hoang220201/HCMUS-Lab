@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Employee>
+	<Employee>
+		<EmployeeID>1</EmployeeID>
+		<EmployeeName>John</EmployeeName>
+		<Email>John@gmail.com</Email>
+		<Birthday>9/8/1980 12:00:00 AM</Birthday>
+		<Type>BOD</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>2</EmployeeID>
+		<EmployeeName>Max</EmployeeName>
+		<Email>Max@gmail.com</Email>
+		<Birthday>3/2/1983 12:00:00 AM</Birthday>
+		<Type>BOD</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>3</EmployeeID>
+		<EmployeeName>Keven</EmployeeName>
+		<Email>Keven@gmail.com</Email>
+		<Birthday>1/5/1988 12:00:00 AM</Birthday>
+		<Type>Leader</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>4</EmployeeID>
+		<EmployeeName>Emma</EmployeeName>
+		<Email>Emma@gmail.com</Email>
+		<Birthday>9/2/1990 12:00:00 AM</Birthday>
+		<Type>Leader</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>5</EmployeeID>
+		<EmployeeName>Seven</EmployeeName>
+		<Email>Seven@gmail.com</Email>
+		<Birthday>1/1/1989 12:00:00 AM</Birthday>
+		<Type>HR</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>6</EmployeeID>
+		<EmployeeName>Mily</EmployeeName>
+		<Email>Mily@gmail.com</Email>
+		<Birthday>6/8/1995 12:00:00 AM</Birthday>
+		<Type>HR</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>7</EmployeeID>
+		<EmployeeName>Molly</EmployeeName>
+		<Email>Molly@gmail.com</Email>
+		<Birthday>4/9/1992 12:00:00 AM</Birthday>
+		<Type>Staff</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>8</EmployeeID>
+		<EmployeeName>Jack</EmployeeName>
+		<Email>Jack@gmail.com</Email>
+		<Birthday>9/8/1996 12:00:00 AM</Birthday>
+		<Type>Staff</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>9</EmployeeID>
+		<EmployeeName>Felix</EmployeeName>
+		<Email>Felix@gmail.com</Email>
+		<Birthday>1/4/1998 12:00:00 AM</Birthday>
+		<Type>Staff</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>10</EmployeeID>
+		<EmployeeName>Justin</EmployeeName>
+		<Email>Justin@gmail.com</Email>
+		<Birthday>8/8/2000 12:00:00 AM</Birthday>
+		<Type>Staff</Type>
+	</Employee>
+	<Employee>
+		<EmployeeID>11</EmployeeID>
+		<EmployeeName>Odin</EmployeeName>
+		<Email>Allfather@gmail.com</Email>
+		<Birthday>1/1/0001 12:00:00 AM</Birthday>
+		<Type>BOD</Type>
+	</Employee>
+</Employee>

@@ -1,0 +1,122 @@
+﻿@model WeekProject04.Models.EmployeesModel
+
+@using WeekProject04.Models
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Employee Details Page</h2>
+
+<p>
+    <button class="btn btn-primary">Add Employee</button>
+</p>
+<h4 class="text-center bg-primary">Employee List</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(emp => emp.EmployeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(emp => emp.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(emp => emp.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(emp => emp.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(emp => emp.Type)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var emp in ViewData["Employees"] as IList<EmployeesModel>)
+    {
+        <tr>
+            <td>
+                @emp.EmployeeID
+            </td>
+            <td>
+                @emp.EmployeeName
+            </td>
+            <td>
+                @emp.Email
+            </td>
+            <td>
+                @emp.Age
+            </td>
+            <td>
+                @emp.Type
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { EmpId = emp.EmployeeID }) |
+                @Html.ActionLink("Details", "Details", new { EmpId = emp.EmployeeID }) |
+                @Html.ActionLink("Delete", "Delete", new { EmpId = emp.EmployeeID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4 class="text-center bg-primary">Add Employee</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployeeID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployeeName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Type,
+                                      new SelectList(Enum.GetValues(typeof(EmpType))),
+                                      "Select EmpType")
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary"  />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

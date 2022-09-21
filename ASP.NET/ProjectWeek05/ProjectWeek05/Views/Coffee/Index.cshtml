@@ -1,0 +1,255 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/CoffeeLayout.cshtml";
+}
+
+
+
+@section VN_STYLE{
+    <link rel="stylesheet" href="~/Assets/H.css" type="text/css" media="screen" />
+    <div class="vn_style">
+
+    </div>
+}
+
+@section Espresso_Coffee{
+    <div class="espresso_coffee">
+
+    </div>
+}
+
+@section Blended{
+    <div class="blended">
+
+    </div>
+}
+
+@section MODEL_DIALOG {
+    <div class="modal fade" id="CreateEditModal" role="dialog">
+        <div class="modal-dialog btn-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><label id="title">No Title</label></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="hidden" class="form-control" id="Id" />
+                                <label>Coffee Names</label>
+                                <input type="text" id="CoffeeName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @using (Html.BeginForm("Index", "Coffee", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "UploadForm" }))
+                                {
+                                    <label>Image Path</label>
+                                    <input type="file" name="file" class="form-control-file" id="ImagePath" />
+                                    <input type="submit" id="btnsubmit" class="hidden" />
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <label>Type</label>
+                                <select class="form-control" id="Type">
+                                    <option value="VN_STYLE">VN_STYLE</option>
+                                    <option value="Espresso_Coffee">Espresso_Coffee</option>
+                                    <option value="Blended">Blended</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <label>Coffee Price</label>
+                                <input type="text" id="Price" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnSave" class="btn btn-primary" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Script{
+    <script type="text/javascript">
+        var isUpdatable = false;
+        var currentUpdatePath = "";
+        var currentId = 0;
+
+        $(document).ready(function () {
+            showCoffee();
+            $("#btnCreateNew").click(function (e) {
+                if (!isUpdatable)
+                    $("#title").text("Create New");
+                else
+                    $("#title").text("Edit");
+            });
+
+            $("#btnClose").click(function (e) {
+                clearModalContent();
+            });
+
+            $("#btnSave").click(function (e) {
+
+                var data = {
+                    Id: $("#Id").val(),
+                    CoffeeName: $.trim($("#CoffeeName").val()),
+                    ImagePath: $("#ImagePath").val(),
+                    Type: $("#Type").val(),
+                    Price: $("#Price").val()
+                }
+
+                if (!isUpdatable) {
+                    if (!data.ImagePath || !data.CoffeeName) {
+                        alert("You should input CoffeeName and choose coffee poster");
+                        return;
+                    }
+                }
+                else {
+                    if (!data.ImagePath)
+                        data.ImagePath = currentUpdatePath;
+                    data.Id = currentId;
+                }
+
+                alert(data.ImagePath);
+                $("#UploadForm").submit();
+
+                if (!isUpdatable) {
+                    $.ajax({
+                        url: '/Coffee/Create/',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: data,
+                        success: function (data) {
+                            showCoffee();
+                            clearModalContent();
+                        },
+                        error: function (err) {
+                            alert("Error:" + err.responseText);
+                        }
+                    });
+                }
+                else {
+                    $.ajax({
+                        url: '/Coffee/Update/',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: data,
+                        success: function (data) {
+                            showCoffee();
+                            clearModalContent();
+                        },
+                        error: function (err) {
+                            alert("Error:" + err.responseText);
+                        }
+                    });
+                }
+            });
+            function clearModalContent() {
+                $("#CoffeeName").val(""),
+                    $("#ImagePath").val(""),
+                    $("#Type").val("VN_STYLE"),
+                    $("#Price").val("");
+            }
+
+        });
+
+        function showCoffee() {
+            $(".vn_style").empty();
+            $(".espresso_coffee").empty();
+            $(".blended").empty();
+
+            $.ajax({
+                url: '/Coffee/ListCoffee/',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        var id = item.Id;
+                        var coffeename = item.CoffeeName;
+                        var coffeepath = item.ImagePath;
+                        var price = item.Price;
+                        var classname = "";
+                        if (item.Type == "VN_STYLE")
+                            classname = ".vn_style";
+                        if (item.Type == "Espresso_Coffee")
+                            classname = ".espresso_coffee";
+                        if (item.Type == "Blended")
+                            classname = ".blended";
+                        AppendNewCoffee(id, classname, coffeename, coffeepath, price);
+                    });
+                },
+                error: function (err) {
+                    alert("Error:" + err.responseText);
+                }
+            });
+            function AppendNewCoffee(id, classname, coffeename, coffeepath, price) {
+                var rows = ' ';
+                rows += "<li>";
+                rows += "<section class='block'>";
+                rows += "<div class='imgCoffee'>";
+                rows += "<a href='#''><img src=\"/Assets/" + coffeepath + "\" alt = 'coffee' /></a > ";
+                rows += "</div>";
+                rows += "<h2>" + coffeename + " <a href='#'>" + price + "$</a></h2>";
+                rows += "<button type = 'button' id = 'btnEdit' class = 'btn btn-primary btn-xs me-2' data-toggle ='modal' data-target='#CreateEditModal' onclick='return getDetailCoffee(" + id + ")'> Edit </button>";
+                rows += "<button type = 'button' id = 'btnDelete' class = 'btn btn-danger btn-xs' onclick='return deleteCoffee(" + id + ")'> Delete </button>";
+                rows += "</section>";
+                rows += "</li>";
+                $(classname).append(rows);
+            }
+        }
+        function deleteCoffee(id) {
+            var confirmDelete = confirm("Do you want to delete this coffee ?");
+            if (!confirmDelete) {
+                showCoffee();
+            }
+            else {
+                $.ajax({
+                    url: '/Coffee/Delete/' + id,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        showCoffee();
+                    },
+                    error: function (err) {
+                        alert("Error:" + err.responseText);
+                    }
+                });
+            }
+        }
+
+        function getDetailCoffee(id) {
+            isUpdatable = true;
+            currentUpdatePath = "";
+            currentId = 0;
+            $("#title").text("Edit");
+
+            $.ajax({
+                url: '/Coffee/Get/' + id,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $("#CoffeeName").val(data.CoffeeName);
+                    $("#Price").val(data.Price);
+                    $("#Type").val(data.Type.trim());
+                    currentUpdatePath = data.ImagePath;
+                    currentId = data.Id;
+                },
+                error: function (err) {
+                    alert("Error:" + err.responseText);
+                }
+            });
+        }
+    </script>
+}

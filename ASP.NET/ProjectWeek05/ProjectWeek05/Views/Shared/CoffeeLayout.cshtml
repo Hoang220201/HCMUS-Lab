@@ -1,0 +1,90 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CoffeeCols</title>
+    <link rel="stylesheet" href="~/Assets/H.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="~/Assets/js/equalcolumns.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="~/Assets/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="~/Assets/js/jquery-func.js"></script>
+    @RenderSection("Script", required: false)
+</head>
+<body>
+
+    <header>
+        <h1>H's CoffeeShop</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="selected"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+    </nav>
+    <section id="intro">
+        <header>
+            <h2>Best Coffee</h2>
+        </header>
+        <p></p>
+        <img src="~/Assets/images/introimage.png" alt="lime" />
+    </section>
+
+    <section id="content">
+        <p><button type="button" id="btnCreateNew" data-toggle="modal" data-target="#CreateEditModal" class="btn btn-primary btn-md">Add New Coffee</button></p>
+        <ul class="column">
+            <h2>Vietnamese Coffee Style</h2>
+            @RenderSection("VN_STYLE", required: false)
+        </ul>
+    </section>
+
+    <section id="content">
+        <ul class="column">
+            <h2>Espresso_Coffee</h2>
+            @RenderSection("Espresso_Coffee", required: false)
+        </ul>
+    </section>
+
+    <section id="content">
+        <ul class="column">
+            <h2>Blended</h2>
+            @RenderSection("Blended", required: false)
+        </ul>
+    </section>
+
+    <footer>
+        <section>
+            <h3>Left Stuff</h3>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Center Stuff</h3>
+            <p>Next line here</p>
+        </section>
+
+        <section>
+            <h3>Right Stuff</h3>
+            <p>&copy; 2010 <a href="#" title="your site name">yoursite.com</a> All rights reserved.</p>
+        </section>
+
+    </footer>
+    <!-- Free template created by http://freehtml5templates.com -->
+    @RenderSection("MODEL_DIALOG", required: false)
+</body>
+</html>
