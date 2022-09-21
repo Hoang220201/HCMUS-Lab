@@ -1,0 +1,3 @@
+﻿  19110317_main.cpp
+C:\Users\Hoang\source\repos\TRR1\TRR1\19110317_main.cpp(174,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  TRR1.vcxproj -> C:\Users\Hoang\source\repos\TRR1\Debug\TRR1.exe
