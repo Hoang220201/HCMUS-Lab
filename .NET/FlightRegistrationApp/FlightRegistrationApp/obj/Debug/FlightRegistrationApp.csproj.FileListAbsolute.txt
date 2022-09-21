@@ -1,0 +1,12 @@
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.FlightSelectionForm.resources
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.LoginForm.resources
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.Properties.Resources.resources
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.RegistrationForm.resources
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.csproj.GenerateResource.cache
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.csproj.CoreCompileInputs.cache
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\bin\Debug\FlightRegistrationApp.exe.config
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\bin\Debug\FlightRegistrationApp.exe
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\bin\Debug\FlightRegistrationApp.pdb
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.exe
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.pdb
+C:\Users\Hoang\source\repos\FlightRegistrationApp\FlightRegistrationApp\obj\Debug\FlightRegistrationApp.csproj.AssemblyReference.cache

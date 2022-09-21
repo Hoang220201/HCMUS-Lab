@@ -1,0 +1,11 @@
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\bin\Debug\LaptopManagement.exe.config
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\bin\Debug\LaptopManagement.exe
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\bin\Debug\LaptopManagement.pdb
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.csproj.ResolveComReference.cache
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.LaptopManagementForm.resources
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.Properties.Resources.resources
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.csproj.GenerateResource.cache
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.csproj.CoreCompileInputs.cache
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.exe
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.pdb
+C:\Users\Hoang\source\repos\LaptopManagement\LaptopManagement\obj\Debug\LaptopManagement.csproj.AssemblyReference.cache

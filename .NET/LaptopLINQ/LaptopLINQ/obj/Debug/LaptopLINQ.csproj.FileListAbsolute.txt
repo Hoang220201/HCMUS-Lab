@@ -1,0 +1,10 @@
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\bin\Debug\LaptopLINQ.exe.config
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\bin\Debug\LaptopLINQ.exe
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\bin\Debug\LaptopLINQ.pdb
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\obj\Debug\LaptopLINQ.csproj.AssemblyReference.cache
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\obj\Debug\LaptopLINQ.Form1.resources
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\obj\Debug\LaptopLINQ.Properties.Resources.resources
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\obj\Debug\LaptopLINQ.csproj.GenerateResource.cache
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\obj\Debug\LaptopLINQ.csproj.CoreCompileInputs.cache
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\obj\Debug\LaptopLINQ.exe
+C:\Users\Hoang\source\repos\LaptopLINQ\LaptopLINQ\obj\Debug\LaptopLINQ.pdb
