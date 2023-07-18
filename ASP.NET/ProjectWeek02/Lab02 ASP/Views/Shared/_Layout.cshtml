@@ -256,7 +256,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="/Login/Index"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="/Login/Login" onclick="logout()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -268,104 +268,17 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+
                         <li>
                             <a href="/Home/Index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/Flot/Index">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="/Morris/Index">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="/Table/Index"><i class="fa fa-list fa-fw"></i> Order</a>
                         </li>
                         <li>
-                            <a href="/Table/Index"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="/SaleReport/SalesReport"><i class="fa fa-money fa-fw"></i> SalesReport</a>
                         </li>
-                        <li>
-                            <a href="/Form/Index"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/Panels/Index">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="/Buttons/Index">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="/Notifications/Index">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="/Typography/Index">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="/Icons/Index"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="/Grid/Index">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/Blank/Index">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="/Login/Index">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -374,13 +287,14 @@
         </nav>
 
         <div id="page-wrapper">
-            @RenderBody();
+            @RenderBody()
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
+
     <script src="~/Assets/Admin/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -396,7 +310,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="~/Assets/Admin/dist/js/sb-admin-2.js"></script>
-    
+    @RenderSection("scripts", required: false)
+
+
+  
 </body>
 
 </html>

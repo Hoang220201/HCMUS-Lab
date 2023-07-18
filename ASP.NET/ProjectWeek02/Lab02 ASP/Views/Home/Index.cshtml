@@ -1,8 +1,71 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿<h2>Coffee Menu</h2>
+
+@model List<Coffee>
+
+<div class="form-group">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+</div>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.ActionLink("Coffee Name", "Index", new { sortOrder = ViewBag.TypeSortParam })</th>
+            <th>@Html.ActionLink("Type", "Index", new { sortOrder = ViewBag.TypeSortParam })</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="coffeeTableBody">
+        @foreach (var coffee in Model)
+        {
+            <tr>
+                <td>@coffee.CoffeeName</td>
+                <td>@coffee.Type</td>
+                <td>@coffee.Price</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = coffee.Id })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = coffee.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var searchValue = $(this).val().toLowerCase();
+                filterCoffeeTable(searchValue);
+            });
+
+            function filterCoffeeTable(searchValue) {
+                $('#coffeeTableBody tr').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(searchValue) > -1)
+                });
+            }
+        });
+    </script>
+
+    @if (TempData.ContainsKey("ToastrMessage") && TempData.ContainsKey("ToastrType"))
+    {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+        <script type="text/javascript">
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "timeOut": 3000,
+                "extendedTimeOut": 2000
+            };
+            toastr.@(TempData["ToastrType"])('@TempData["ToastrMessage"]');
+        </script>
+    }
 }
-
-<h2>View of Dashboard</h2>
-
-@RenderPage("~/Views/Home/DashboardContent.cshtml")
