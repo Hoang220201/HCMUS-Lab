@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CoffeeDB">
   <DataContextMoniker Name="/CoffeeDBDataContext" />
   <nestedChildShapes>
-    <classShape Id="02c64eb6-e210-436c-a0ac-d64a574e4632" absoluteBounds="5.5, 2.375, 2, 1.7708968098958331">
+    <classShape Id="02c64eb6-e210-436c-a0ac-d64a574e4632" absoluteBounds="4.625, 1.625, 2, 1.7708968098958331">
       <DataClassMoniker Name="/CoffeeDBDataContext/Coffee" />
       <nestedChildShapes>
-        <elementListCompartment Id="12b27674-92e0-4b1d-aad1-1fa4395ba6a8" absoluteBounds="5.515, 2.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="12b27674-92e0-4b1d-aad1-1fa4395ba6a8" absoluteBounds="4.64, 2.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

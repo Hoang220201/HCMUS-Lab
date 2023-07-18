@@ -92,18 +92,18 @@ namespace ProjectWeek02
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Account_Login_Check2")]
-		public int sp_Account_Login_Check2([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> res)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Account_SignUp")]
+		public int sp_Account_SignUp([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(20)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(20)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(20)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountType", DbType="NVarChar(10)")] string accountType)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, res);
-			res = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, email, password, firstName, lastName, accountType);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Account_SignUp")]
-		public int sp_Account_SignUp([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(30)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(20)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(20)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountType", DbType="NVarChar(10)")] string accountType)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_User_Login_Check")]
+		public int sp_User_Login_Check([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(20)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> res)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password, email, firstName, lastName, accountType);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, res);
+			res = ((System.Nullable<bool>)(result.GetParameterValue(2)));
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -326,9 +326,9 @@ namespace ProjectWeek02
 		
 		private int _Quantity;
 		
-		private int _Price;
+		private decimal _Price;
 		
-		private int _Total;
+		private System.Nullable<decimal> _Total;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -340,9 +340,9 @@ namespace ProjectWeek02
     partial void OnProductNameChanged();
     partial void OnQuantityChanging(int value);
     partial void OnQuantityChanged();
-    partial void OnPriceChanging(int value);
+    partial void OnPriceChanging(decimal value);
     partial void OnPriceChanged();
-    partial void OnTotalChanging(int value);
+    partial void OnTotalChanging(System.Nullable<decimal> value);
     partial void OnTotalChanged();
     #endregion
 		
@@ -371,7 +371,7 @@ namespace ProjectWeek02
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
 		public string ProductName
 		{
 			get
@@ -411,8 +411,8 @@ namespace ProjectWeek02
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int NOT NULL")]
-		public int Price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Price
 		{
 			get
 			{
@@ -431,8 +431,8 @@ namespace ProjectWeek02
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Int NOT NULL")]
-		public int Total
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Total
 		{
 			get
 			{

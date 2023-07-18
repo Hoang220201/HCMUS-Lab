@@ -14,10 +14,10 @@
   <Table Name="dbo.Product" Member="Products">
     <Type Name="Product">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProductName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Total" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_Account_Login_Check" Method="sp_Account_Login_Check">
@@ -26,19 +26,19 @@
     <Parameter Name="res" Type="System.Boolean" DbType="Bit" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_Account_Login_Check2" Method="sp_Account_Login_Check2">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="res" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.sp_Account_SignUp" Method="sp_Account_SignUp">
     <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="AccountType" Parameter="accountType" Type="System.String" DbType="NVarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_User_Login_Check" Method="sp_User_Login_Check">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="res" Type="System.Boolean" DbType="Bit" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

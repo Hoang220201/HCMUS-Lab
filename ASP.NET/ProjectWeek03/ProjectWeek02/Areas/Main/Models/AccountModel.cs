@@ -17,7 +17,7 @@ namespace ProjectWeek02.Areas.Main.Models
         public bool Login(string Email, string Password)
         {
             bool? res = false;
-            context.sp_Account_Login_Check2(Email, Password, ref res);
+            context.sp_User_Login_Check(Email, Password, ref res);
 
             return (res ?? false);
         }

@@ -169,11 +169,6 @@
     <Content Include="Areas\Main\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_Layout.cshtml" />
     <Content Include="Assets\Main\scss\style.scss" />
-    <Content Include="CompanyDB.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>CompanyDB.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Areas\Admin\Views\Home\ListAccount.cshtml" />
     <Content Include="Areas\Main\Views\Login\TableResponsive.cshtml" />
     <Content Include="Areas\Main\Views\Login\Index.cshtml" />
@@ -186,6 +181,11 @@
     <Content Include="Areas\Main\Views\Home\Index.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_TableLayout.cshtml" />
     <Content Include="Areas\Main\Views\Home\Create.cshtml" />
+    <Content Include="CompanyDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CompanyDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="CompanyDB.dbml.layout">
       <DependentUpon>CompanyDB.dbml</DependentUpon>
     </None>
